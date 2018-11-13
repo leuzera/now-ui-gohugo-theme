@@ -3,5 +3,32 @@
     <h3 class="title">{{ .Params.name }}</h3>
     <p class="category text-primary">{{ .Params.role }}</p>
     <p class="description">{{ .Content }}</p>
-    <!-- Iterate social profiles -->
+    
+    {{ $social := .Params.Social }}
+    {{ range $social }}
+        {{ with .twitter }}
+            <a href="{{ . }}" class="btn btn-primary btn-icon btn-round"><i class="fab fa-twitter"></i></a>
+        {{ end }}
+        {{ with .facebook }}
+            <a href="{{ . }}" class="btn btn-primary btn-icon btn-round"><i class="fab fa-facebook"></i></a>
+        {{ end }}
+        {{ with .youtube }}
+            <a href="{{ . }}" class="btn btn-primary btn-icon btn-round"><i class="fab fa-youtube"></i></a>
+        {{ end }}
+        {{ with .tumblr }}
+            <a href="{{ . }}" class="btn btn-primary btn-icon btn-round"><i class="fab fa-tumblr"></i></a>
+        {{ end }}
+        {{ with .steam }}
+            <a href="{{ . }}" class="btn btn-primary btn-icon btn-round"><i class="fab fa-steam"></i></a>
+        {{ end }}
+        {{ with .skype }}
+            <a href="{{ . }}" class="btn btn-primary btn-icon btn-round"><i class="fab fa-skype"></i></a>
+        {{ end }}
+        {{ with .github }}
+            <a href="{{ . }}" class="btn btn-primary btn-icon btn-round"><i class="fab fa-github"></i></a>
+        {{ end }}
+        {{ with .linkedin }}
+            <a href="{{ . }}" class="btn btn-primary btn-icon btn-round"><i class="fab fa-linkedin"></i></a>
+        {{ end }}
+    {{ end }}
 </div>
