@@ -1,5 +1,6 @@
 {{ $ := .root }}
 {{ $page := .page }}
+{{ $scratch := newScratch }}
 
 <section class="section section-team text-center">
     <div class="container">
@@ -12,16 +13,14 @@
                     Possible sizes of columns: (3, 4, 6)
                 -->
                 {{ $num_members := (len ((where $.Site.RegularPages "Type" "team"))) }}
-                {{ $rows := 1}}
-                {{ $col_size := "col-md-6"}}
+                {{ $page.Scratch.Set "col_size" "col-md-6"}}
 
-                {{ if gt $num_members 4 }}
-                    {{ $rows := mod $num_members 4}}
-                    {{ $col_size := "col-md-3"}}
+                {{ if ge $num_members 3}}
+                    {{ $page.Scratch.Set "col_size" "col-md-4"}}
                 {{ end }}
 
                 {{ range (where $.Site.RegularPages "Type" "team") }}
-                    <div class="col-md-6">
+                    <div class="{{ $page.Scratch.Get "col_size" }}">
                         {{ partial "widgets/_team-member.html" . }}
                     </div>
                 {{ end }}
