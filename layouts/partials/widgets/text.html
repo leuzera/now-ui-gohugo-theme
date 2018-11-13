@@ -1,0 +1,12 @@
+{{ $ := .root }}
+{{ $page := .page }}
+
+<section class="section">
+<div class="container">
+    <div class="col-md-8 ml-auto mr-auto text-left">
+        <h2 class="title text-center"> {{ $page.Title }} </h2>
+        {{ if $page.Description }} <p class="description">{{ $page.Description }}</p> {{ end }}
+        {{ $page.Content }}
+    </div>
+</div>
+</section>

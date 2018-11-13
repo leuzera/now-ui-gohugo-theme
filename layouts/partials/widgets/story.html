@@ -1,0 +1,29 @@
+{{ $ := .root }}
+{{ $page := .page }}
+
+<section class="section section-story-overview">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="image-container image-left" style="background-image: url('{{ index $page.Params.images 1 | relURL }}')">
+                    <!-- First image on the left side -->
+                    {{ if isset $page.Params "quote" }}
+                    <p class="blockquote blockquote-primary">{{ $page.Params.quote }}
+                        <br>
+                        <br>
+                        <small>{{ $page.Params.quote_author }}</small>
+                    </p>
+                    {{ end }}
+                </div>
+                <!-- Second image on the left side of the article -->
+                <div class="image-container" style="background-image: url('{{ index $page.Params.images 2 | relURL }}')"></div>
+            </div>
+            <div class="col-md-5">
+                <!-- First image on the right side, above the article -->
+                <div class="image-container image-right" style="background-image: url('{{ index $page.Params.images 0 | relURL }}')"></div>
+                <h2 class="title text-center">{{ $page.Title }}</h2>
+                {{ $page.Content }}
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,29 @@
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+
+    <title>{{- .Site.Title -}}</title>
+
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+
+    <!-- CSS Files -->
+    <link href="{{ "css/bootstrap.min.css" | relURL }}" rel="stylesheet" />
+    <link href="{{ "css/now-ui-kit.min.css?v=1.2.0" | relURL }}" rel="stylesheet" />
+    
+    <!-- Custom CSS Files -->
+    {{ range .Site.Params.custom_css -}}
+    <link rel="stylesheet" href="{{ . | absURL }}">
+    {{- end }}
+
+    <!-- Canonical SEO -->
+    <link rel="canonical" href="{{ .Permalink }}" />
+
+    {{- template "_internal/opengraph.html" . -}}
+    {{- template "_internal/google_news.html" . -}}
+    {{- template "_internal/schema.html" . -}}
+    {{- template "_internal/twitter_cards.html" . -}}
+</head>

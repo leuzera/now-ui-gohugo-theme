@@ -1,0 +1,31 @@
+{{ $ := .root }}
+{{ $page := .page }}
+
+<section class="section section-team text-center">
+    <div class="container">
+        <h2 class="title">{{ $page.Title }}</h2>
+        <div class="team">
+            <div class="row">
+                <!--TODO: Change size of column
+                    Get numbers of members and calculate the number of rows and size of column
+                    Max number of members per row: 4
+                    Possible sizes of columns: (3, 4, 6)
+                -->
+                {{ $num_members := (len ((where $.Site.RegularPages "Type" "team"))) }}
+                {{ $rows := 1}}
+                {{ $col_size := "col-md-6"}}
+
+                {{ if gt $num_members 4 }}
+                    {{ $rows := mod $num_members 4}}
+                    {{ $col_size := "col-md-3"}}
+                {{ end }}
+
+                {{ range (where $.Site.RegularPages "Type" "team") }}
+                    <div class="col-md-6">
+                        {{ partial "widgets/_team-member.html" . }}
+                    </div>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+</section>
