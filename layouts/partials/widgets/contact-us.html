@@ -21,7 +21,9 @@
                     <label for="messageInput">Message</label>
                     <textarea name="messageInput" class="form-control" id="messageInput" cols="30" rows="10"></textarea>
                 </div>
+                {{ if .Params.captcha }}
                 <div data-netlify-recaptcha></div>
+                {{ end }}
                 <button type="submit" class="btn btn-primary btn-round btn-block btn-lg">Submit</button>
             </form>
         </div>
