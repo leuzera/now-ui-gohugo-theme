@@ -1,0 +1,21 @@
+<div class="col-md-6 col-lg-6 col-xl-6 ml-auto mr-auto">
+    <div class="card">
+        <ul class="nav justify-content-center" role="tablist" data-background-color="orange">
+            <li class="nav-item">
+                <a class="nav-link active" href="{{ .Permalink }}" role="tab">
+                    <i class="now-ui-icons files_paper"></i> <strong>{{ .Title }}</strong>
+                </a>
+            </li>
+            <a class="nav-link active" href="{{ .Permalink }}" role="tab">
+                <li class="nav-item"><i class="now-ui-icons ui-1_calendar-60"></i> {{ .Date.Format "02/01/06"}}
+            </a>
+            </li>
+        </ul>
+        <div class="card-body">
+            {{ if .Params.header_image }}
+            <img src="{{ .Params.header_image | absURL }}" class="rounded" height="100px" />
+            {{ end }}
+            {{ .Summary }}
+        </div>
+    </div>
+</div>

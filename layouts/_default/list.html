@@ -1,6 +1,9 @@
 {{ define "main" }}
-{{ range .Data.Pages }}
-    <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
-    {{ .Summary }}
+<section class="section container">
+    <div class="row">
+        {{ range .Data.Pages }}
+            {{ partial "card.html" . }}
+        {{ end }}
+    </div>
+</section>
 {{ end }}
-{{  end }}
