@@ -1,6 +1,6 @@
 {{ define "main" }}
 <section class="section container">
-    <div class="row">
+    <div class="card-columns">
         {{ range .Data.Pages }}
             {{ partial "card.html" . }}
         {{ end }}

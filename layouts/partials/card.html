@@ -1,21 +1,15 @@
-<div class="col-md-6 col-lg-6 col-xl-6 ml-auto mr-auto">
+<!--div class="col-md-6 col-lg-6 col-xl-6 ml-auto mr-auto"-->
     <div class="card">
-        <ul class="nav justify-content-center" role="tablist" data-background-color="orange">
-            <li class="nav-item">
-                <a class="nav-link active" href="{{ .Permalink }}" role="tab">
-                    <i class="now-ui-icons files_paper"></i> <strong>{{ .Title }}</strong>
-                </a>
-            </li>
-            <a class="nav-link active" href="{{ .Permalink }}" role="tab">
-                <li class="nav-item"><i class="now-ui-icons ui-1_calendar-60"></i> {{ .Date.Format "02/01/06"}}
-            </a>
-            </li>
-        </ul>
+        {{ if .Params.header_image }}
+        <img src="{{ .Params.header_image | absURL }}" class="card-img-top" style="heigth:150px"/>
+        {{ end }}
         <div class="card-body">
-            {{ if .Params.header_image }}
-            <img src="{{ .Params.header_image | absURL }}" class="rounded" height="100px" />
-            {{ end }}
+            <h2 class="card-title"> <a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+            <div class="card-subtitle mb-2 text-muted">
+                <time datetime="{{ .Date }}" class="mr-3">{{ .Date.Format "02/01/2006" }}</time>
+                <span>{{ .WordCount }} words</span>
+            </div>
             {{ .Summary }}
         </div>
     </div>
-</div>
+<!--/div-->
