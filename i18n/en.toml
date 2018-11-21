@@ -1,7 +1,11 @@
+# Menu
+[home]
+other = "Home"
+
 # Posts infos
 [readingTime]
 one = "One minute"
-other = "{{.Count}} minutes"
+other = "{{ . }} minutes"
 
 # Contact Us form
 [nameInput]
