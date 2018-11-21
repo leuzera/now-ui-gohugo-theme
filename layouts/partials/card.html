@@ -1,14 +1,12 @@
-<!--div class="col-md-6 col-lg-6 col-xl-6 ml-auto mr-auto"-->
-    <div class="card">
-        {{ if .Params.header_image }}
-        <img src="{{ .Params.header_image | absURL }}" class="card-img-top" style="heigth:150px"/>
-        {{ end }}
-        <div class="card-body">
-            <h2 class="card-title"> <a href="{{ .Permalink }}">{{ .Title }}</a></h2>
-            <div class="card-subtitle mb-2 text-muted">
-                {{ partial "post-info.html" . }}
-            </div>
-            {{ .Summary }}
+<div class="card">
+    {{ if .Params.header_image }}
+    <img src="{{ .Params.header_image | absURL }}" class="card-img-top" style="heigth:150px" />
+    {{ end }}
+    <div class="card-body">
+        <h2 class="card-title"> <a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+        <div class="card-subtitle mb-2 text-muted">
+            {{ partial "post-info.html" . }}
         </div>
+        {{ .Summary }}
     </div>
-<!--/div-->
+</div>
