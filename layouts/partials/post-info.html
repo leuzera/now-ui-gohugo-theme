@@ -1,2 +1,4 @@
+{{ $timeToRead := math.Round (div .WordCount 200) }}
 <time datetime="{{ .Date }}" class="mr-3">{{ .Date.Format "02/01/2006" }}</time>
-<span class="mr-3">{{ i18n "readingTime" (math.Round (div .WordCount 200)) }}</span>
+<!-- TODO: translation not working -->
+<!-- span class="mr-3">{{ i18n "readingTime" }}</span-->
