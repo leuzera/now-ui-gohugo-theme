@@ -1,0 +1,16 @@
+{{ $ := .root }}
+{{ $page := .page }}
+
+<section class="section">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="title">{{ $page.Title }}</h2>
+            <p class="description">{{ $page.Content }}</p>
+        </div>
+        <div class="card-columns">
+            {{ range first 3 (where $.Data.Pages.ByPublishDate.Reverse "Section" "post") }}
+            {{ partial "card.html" . }}
+            {{ end }}
+        </div>
+    </div>
+</section>

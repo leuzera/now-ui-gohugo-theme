@@ -1,0 +1,24 @@
+# Posts infos
+[readingTime]
+one = "Um minuto"
+other = "{{.Count}} minutos"
+
+# Contact Us form
+[nameInput]
+other = "Nome completo"
+
+[nameHelp]
+other = "Insira seu nome completo."
+
+[emailInput]
+other = "Email"
+
+[emailHelp]
+other = "Nunca iremos compartilhar seu email com ninguem."
+
+[messageInput]
+other = "Mensagem"
+
+[submit]
+other = "Enviar"
+

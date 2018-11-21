@@ -9,23 +9,23 @@
             <!-- TODO: Show modal to confirm sending mensage -->
             <form name="contact" method="post" enctype="text/plain" class="col-lg-6 col-md-8 ml-auto mr-auto" netlify>
                 <div class="form-group text-left">
-                    <label for="nameInput">Full name</label>
+                    <label for="nameInput">{{ i18n "nameInput" }}</label>
                     <input type="text" class="form-control" id="nameInput" aria-describedby="nameHelp">
-                    <small id="namelHelp" class="form-text text-muted">Enter your full name.</small>
+                    <small id="namelHelp" class="form-text text-muted">{{ i18n "nameHelp" }}</small>
                 </div>
                 <div class="form-group text-left">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    <label for="emailInput">{{ i18n "emailInput" }}</label>
+                    <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp">
+                    <small id="emailHelp" class="form-text text-muted">{{ i18n "emailHelp" }}</small>
                 </div>
                 <div class="form-group text-left">
-                    <label for="messageInput">Message</label>
+                    <label for="messageInput">{{ i18n "messageInput" }}</label>
                     <textarea name="messageInput" class="form-control" id="messageInput" cols="30" rows="10"></textarea>
                 </div>
                 {{ if .Params.captcha }}
                 <div data-netlify-recaptcha></div>
                 {{ end }}
-                <button type="submit" class="btn btn-primary btn-round btn-block btn-lg">Submit</button>
+                <button type="submit" class="btn btn-primary btn-round btn-block btn-lg">{{ i18n "submit" }}</button>
             </form>
         </div>
     </div>
