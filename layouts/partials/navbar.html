@@ -8,16 +8,35 @@
                 {{ .Site.Title }}
                 {{ end }}
             </a>
+            <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+                aria-controls="navigation-index" aria-expanded="true" aria-label="Toggle navigation">
+                <span class="navbar-toggler-bar bar1"></span>
+                <span class="navbar-toggler-bar bar2"></span>
+                <span class="navbar-toggler-bar bar3"></span>
+            </button>
         </div>
-        <ul class="navbar-nav ml-auto">
-            <!-- TODO: hide home and team entrys -->
-            {{ $currentPage := . }}
-            {{ range .Site.Menus.main }}
-            <li class="nav-item">
-                <a class="nav-link{{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} active{{end}}"
-                    href="{{ .URL }}" title="{{ .Title }}"><span>{{ .Name }}</span></a>    
-            </li>
-            {{ end }}
-        </ul>
+        <div class="navbar-collapse justify-content-end collapse show">
+            <ul class="navbar-nav ml-auto">
+                <!-- TODO: hide home and team entrys -->
+                {{ $currentPage := . }}
+                {{ range .Site.Menus.main }}
+                <li class="nav-item">
+                    <a class="nav-link{{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} active{{end}}"
+                        href="{{ .URL }}" title="{{ .Title }}"><span>{{ .Name }}</span></a>
+                </li>
+                {{ end }}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        {{ $.Site.Home.Language.LanguageName }}
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        {{ range $.Site.Home.AllTranslations }}
+                        <a class="dropdown-item" href="{{ .Permalink }}">{{ .Language.LanguageName }}</a>
+                        {{ end }}
+                    </div>
+                </li>
+            </ul>
+        </div>
     </div>
 </nav>
