@@ -6,8 +6,7 @@
         <div class="card-body">
             <h2 class="card-title"> <a href="{{ .Permalink }}">{{ .Title }}</a></h2>
             <div class="card-subtitle mb-2 text-muted">
-                <time datetime="{{ .Date }}" class="mr-3">{{ .Date.Format "02/01/2006" }}</time>
-                <span>{{ .WordCount }} words</span>
+                {{ partial "post-info.html" . }}
             </div>
             {{ .Summary }}
         </div>
