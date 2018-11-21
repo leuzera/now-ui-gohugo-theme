@@ -1,7 +1,7 @@
 {{ define "main" }}
 <section class="section container">
     <div class="card-columns">
-        {{ range .Data.Pages }}
+        {{ range .Data.Pages.ByPublishDate.Reverse }}
             {{ partial "card.html" . }}
         {{ end }}
     </div>
