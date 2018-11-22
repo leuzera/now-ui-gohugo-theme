@@ -2,6 +2,9 @@
 <section class="section container">
     <div class="row">
         <div class="col-md-8 ml-auto mr-auto text-left">
+            <div class="mb-5 text-muted">
+                {{ partial "post-info.html" . }}
+            </div>
             {{ .Content }}
         </div>
     </div>
