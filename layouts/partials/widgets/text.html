@@ -1,7 +1,7 @@
 {{ $ := .root }}
 {{ $page := .page }}
 
-<section class="section">
+<section id="{{ $page.File.TranslationBaseName }}" class="section">
 <div class="container">
     <div class="col-md-8 ml-auto mr-auto text-left">
         <h2 class="title text-center"> {{ $page.Title }} </h2>
