@@ -3,9 +3,13 @@
 other = "Inicio"
 
 # Posts infos
-[readingTime]
+[timeToRead]
 one = "Um minuto"
-other = "{{ . }} minutos"
+other = "{{ .Count }} minutos"
+
+[words]
+one = "Uma palavra"
+other = "{{ .Count }} palavras"
 
 # Contact Us form
 [nameInput]
