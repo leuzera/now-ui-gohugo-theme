@@ -7,10 +7,20 @@
             <h2 class="title">{{ $page.Title }}</h2>
             <p class="description">{{ $page.Content }}</p>
         </div>
+        {{ if eq $page.Params.type "list" }}
+        <div class="list-group">
+            {{ range first 3 (where $.Data.Pages.ByPublishDate.Reverse "Section" "post") }}
+            {{ partial "list.html" . }}
+            {{ end }}
+        </div>
+        {{ else if eq $page.Params.type "card" }}
         <div class="card-columns">
             {{ range first 3 (where $.Data.Pages.ByPublishDate.Reverse "Section" "post") }}
             {{ partial "card.html" . }}
             {{ end }}
         </div>
+        {{ else }}
+        {{ errorf "Configuration error: type must be `card` or `list` but is %v" $page.Params.type }}
+        {{ end }}
     </div>
 </section>

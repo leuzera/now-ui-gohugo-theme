@@ -1,0 +1,10 @@
+<div class="list-group-item list-group-item-action flex-column align-items-start">
+    <img class="mr-3 rounded float-left" src="{{ .Params.header_image | absURL }}" style="height: 150px;" />
+    <div class="media-body">
+        <h2 class="mb-1"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+        <div class="mb-2 text-muted">
+            {{ partial "post-info.html" . }}
+        </div>
+        <p class="mb-1">{{ .Summary }}</p>
+    </div>
+</div>
