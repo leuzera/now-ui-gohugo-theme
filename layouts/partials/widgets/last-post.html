@@ -1,6 +1,8 @@
 {{ $ := .root }}
 {{ $page := .page }}
 
+{{ $posts_len := len (where $.Data.Pages "Section" "post") }}
+{{ if gt $posts_len 0 }}
 <section id="{{ $page.File.TranslationBaseName }}" class="section">
     <div class="container">
         <div class="text-center">
@@ -24,3 +26,4 @@
         {{ end }}
     </div>
 </section>
+{{ end }}

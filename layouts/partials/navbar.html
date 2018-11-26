@@ -19,7 +19,7 @@
             <ul class="navbar-nav ml-auto">
                 <!-- TODO: hide home and team entrys -->
                 {{ $currentPage := . }}
-                {{ range .Site.Menus.main }}
+                {{ range .Site.Menus.landing_page }}
                 <li class="nav-item">
                     <a class="nav-link{{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} active{{end}}"
                         href="{{ .URL }}" title="{{ .Title }}"><span>{{ .Name }}</span></a>
@@ -28,7 +28,8 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
-                        {{ $.Site.Home.Language.LanguageName }}
+                        <i class="fas fa-globe" aria-hidden="true"></i>
+                        <span>{{ $.Site.Home.Language.LanguageName }}</span>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         {{ range $.Site.Home.AllTranslations }}
