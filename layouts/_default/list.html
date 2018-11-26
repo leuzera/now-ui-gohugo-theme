@@ -1,9 +1,13 @@
 {{ define "main" }}
 <section class="section container">
     <div class="card-columns">
-        {{ range .Data.Pages.ByPublishDate.Reverse }}
-            {{ partial "card.html" . }}
+        {{ $paginator := .Paginate (where .Pages "Type" "post") }}
+        {{ range $paginator.Pages }}
+        {{ partial "card.html" . }}
         {{ end }}
     </div>
+    <nav>
+        {{ template "_internal/pagination.html" . }}
+    </nav>
 </section>
 {{ end }}
