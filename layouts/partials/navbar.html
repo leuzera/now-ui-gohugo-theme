@@ -17,7 +17,6 @@
         </div>
         <div class="navbar-collapse justify-content-end collapse show">
             <ul class="navbar-nav ml-auto">
-                <!-- TODO: hide home and team entrys -->
                 {{ $currentPage := . }}
                 {{ range .Site.Menus.landing_page }}
                 <li class="nav-item">
@@ -25,6 +24,7 @@
                         href="{{ .URL }}" title="{{ .Title }}"><span>{{ .Name }}</span></a>
                 </li>
                 {{ end }}
+                {{ if .IsTranslated }}
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
@@ -37,6 +37,7 @@
                         {{ end }}
                     </div>
                 </li>
+                {{ end }}
             </ul>
         </div>
     </div>
