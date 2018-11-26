@@ -2,9 +2,16 @@
     <img src="{{ .Params.image }}" alt="Photo of {{ .Params.name }}" class="rounded-circle img-fluid img-raised" style=" max-width: 100px ">
     <h3 class="title">{{ .Params.name }}</h3>
     <p class="category text-primary">{{ .Params.role }}</p>
+    <!-- TODO: configure email -->
+    {{/* if .Params.Social.email }}
+    <p class="">{{ .Params.Social.email }}</p>
+    {{ end */}}
     {{ .Content }}
-    
+
     {{ range .Params.Social }}
+        {{ with .homepage }}
+            <a href="{{ . }}" class="btn btn-primary btn-icon btn-round"><i class="fas fa-home"></i></a>
+        {{ end }}
         {{ with .twitter }}
             <a href="{{ . }}" class="btn btn-primary btn-icon btn-round"><i class="fab fa-twitter"></i></a>
         {{ end }}
@@ -33,4 +40,6 @@
             <a href="{{ . }}" class="btn btn-primary btn-icon btn-round"><i class="fab fa-bitbucket"></i></a>
         {{ end }}
     {{ end }}
+
+
 </div>
