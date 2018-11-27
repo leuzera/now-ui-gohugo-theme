@@ -6,8 +6,12 @@
 <section id="{{ $page.File.TranslationBaseName }}" class="section">
     <div class="container">
         <div class="text-center">
-            <h2 class="title">{{ $page.Title }}</h2>
-            <p class="description">{{ $page.Content }}</p>
+            {{ with $page.Title }}
+            <h2 class="title">{{ . }}</h2>
+            {{ end }}
+            {{ with $page.Params.description }}
+            <p class="description">{{ . }}</p>
+            {{ end }}
         </div>
         {{ if eq $page.Params.type "list" }}
         <div class="list-group">

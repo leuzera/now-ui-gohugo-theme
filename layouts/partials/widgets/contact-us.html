@@ -3,8 +3,14 @@
 
 <section id="{{ $page.File.TranslationBaseName }}" class="section section-contact-us text-center">
     <div class="container">
-        <h2 class="title">{{ $page.Title }}</h2>
-        <p class="description">{{ $page.Content }}</p>
+        <div class="text-center">
+            {{ with $page.Title }}
+            <h2 class="title">{{ . }}</h2>
+            {{ end }}
+            {{ with $page.Params.description }}
+            <p class="description">{{ . }}</p>
+            {{ end }}
+        </div>
         <div class="row">
             <!-- TODO: Show modal to confirm sending mensage -->
             <form name="contact" method="post" enctype="text/plain" class="col-lg-6 col-md-8 ml-auto mr-auto" netlify>

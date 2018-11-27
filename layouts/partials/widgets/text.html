@@ -2,11 +2,17 @@
 {{ $page := .page }}
 
 <section id="{{ $page.File.TranslationBaseName }}" class="section">
-<div class="container">
-    <div class="col-md-8 ml-auto mr-auto text-left">
-        <h2 class="title text-center"> {{ $page.Title }} </h2>
-        {{ if $page.Description }} <p class="description">{{ $page.Description }}</p> {{ end }}
-        {{ $page.Content }}
+    <div class="container">
+        <div class="col-md-8 ml-auto mr-auto text-left">
+            <div class="text-center">
+                {{ with $page.Title }}
+                <h2 class="title">{{ . }}</h2>
+                {{ end }}
+                {{ with $page.Params.description }}
+                <p class="description">{{ . }}</p>
+                {{ end }}
+            </div>
+            {{ $page.Content }}
+        </div>
     </div>
-</div>
 </section>

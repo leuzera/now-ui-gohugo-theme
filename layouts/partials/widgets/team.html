@@ -4,7 +4,14 @@
 
 <section id="{{ $page.File.TranslationBaseName }}" class="section section-team text-center">
     <div class="container">
-        <h2 class="title">{{ $page.Title }}</h2>
+        <div class="text-center">
+            {{ with $page.Title }}
+            <h2 class="title">{{ . }}</h2>
+            {{ end }}
+            {{ with $page.Params.description }}
+            <p class="description">{{ . }}</p>
+            {{ end }}
+        </div>
         <div class="team">
             <div class="row">
                 <!--TODO: Change size of column
@@ -16,13 +23,13 @@
                 {{ $page.Scratch.Set "col_size" "col-md-6"}}
 
                 {{ if ge $num_members 3}}
-                    {{ $page.Scratch.Set "col_size" "col-md-4"}}
+                {{ $page.Scratch.Set "col_size" "col-md-4"}}
                 {{ end }}
 
                 {{ range (where $.Site.RegularPages "Type" "team") }}
-                    <div class="{{ $page.Scratch.Get "col_size" }}">
-                        {{ partial "widgets/_team-member.html" . }}
-                    </div>
+                <div class="{{ $page.Scratch.Get "col_size" }}">
+                    {{ partial "widgets/_team-member.html" . }}
+                </div>
                 {{ end }}
             </div>
         </div>
