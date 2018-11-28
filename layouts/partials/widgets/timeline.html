@@ -13,9 +13,9 @@
         </div>
 
         <div class="col-md-8 offset-md-2">
-            {{ if $page.Params.experience }}
-            {{ $exp_len := len $page.Params.experience }}
-            {{ range $idx, $key := sort $page.Params.experience "date" "desc"}}
+            {{ if $page.Params.events }}
+            {{ $exp_len := len $page.Params.events }}
+            {{ range $idx, $key := sort $page.Params.events "date" "desc"}}
             <div class="row">
                 <!-- Timeline -->
                 <div class="col-auto text-center flex-column d-none d-sm-flex">
@@ -41,7 +41,7 @@
                             </div>
                             {{ end }}
                             <div>
-                                <h4 class="card-title mb-0 mt-0">
+                                <h4 class="card-title mb-1 mt-0">
                                     {{- with .company_url}}<a href="{{.}}" target="_blank" rel="noopener">{{end}}
                                         {{.title | markdownify | emojify}}{{with .company_url}}</a>
                                     {{end -}}
