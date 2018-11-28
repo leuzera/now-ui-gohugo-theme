@@ -9,54 +9,55 @@
             {{ end }}
             {{ with $page.Params.description }}
             <p class="description">{{ . }}</p>
-            {{ end }} 
+            {{ end }}
         </div>
 
-        {{ if $page.Params.experience }}
-        {{ $exp_len := len $page.Params.experience }}
-        {{ range $idx, $key := sort $page.Params.experience ".date_start" "desc" }}
-        <div class="row experience">
-            <!-- Timeline -->
-            <div class="col-auto text-center flex-column d-none d-sm-flex">
-                <div class="row h-50">
-                    <div class="col {{if gt $idx 0}}border-right{{end}}">&nbsp;</div>
-                    <div class="col">&nbsp;</div>
+        <div class="col-md-8 offset-md-2">
+            {{ if $page.Params.experience }}
+            {{ $exp_len := len $page.Params.experience }}
+            {{ range $idx, $key := sort $page.Params.experience "date" "desc"}}
+            <div class="row">
+                <!-- Timeline -->
+                <div class="col-auto text-center flex-column d-none d-sm-flex">
+                    <div class="row h-50">
+                        <div class="col {{if gt $idx 0}}border-right{{end}}">&nbsp;</div>
+                        <div class="col">&nbsp;</div>
+                    </div>
+                    <div class="m-2">
+                        <span class="badge badge-pill border {{if eq $idx 0}}bg-primary{{end}}">&nbsp;</span>
+                    </div>
+                    <div class="row h-50">
+                        <div class="col {{if lt $idx (sub $exp_len 1)}}border-right{{end}}">&nbsp;</div>
+                        <div class="col">&nbsp;</div>
+                    </div>
                 </div>
-                <div class="m-2">
-                    <span class="badge badge-pill border {{if not .date_end}}exp-fill{{end}}">&nbsp;</span>
-                </div>
-                <div class="row h-50">
-                    <div class="col {{if lt $idx (sub $exp_len 1)}}border-right{{end}}">&nbsp;</div>
-                    <div class="col">&nbsp;</div>
-                </div>
-            </div>
-            <!-- Content -->
-            <div class="col py-2">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="float-right text-muted exp-meta">
-                            <div>
-                                {{ (time .date_start).Format ($page.Params.date_format | default "January 2006") }} –
-                                {{ if .date_end}}
-                                {{ (time .date_end).Format ($page.Params.date_format | default "January 2006") }}
-                                {{else}}
-                                {{ i18n "present" | default "Present" }}
-                                {{end}}
-                                {{with .location}}
+                <!-- Content -->
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+                            {{ with .image }}
+                            <div class="float-left mr-3 mb-3">
+                                <img src="{{ .path }}" alt="{{ .alt }}" class="img-fluid" style="max-height: 200px; ">
                             </div>
-                            <div class="text-right">{{.}}</div>
-                            {{end}}
+                            {{ end }}
+                            <div>
+                                <h4 class="card-title mb-0 mt-0">
+                                    {{- with .company_url}}<a href="{{.}}" target="_blank" rel="noopener">{{end}}
+                                        {{.title | markdownify | emojify}}{{with .company_url}}</a>
+                                    {{end -}}
+                                </h4>
+                                <div class="card-subtitle mb-3 text-muted">
+                                    <time datetime="{{ time .date }}" >{{ (time .date).Format ($page.Params.date_format | default "January 2006") }}</time>
+                                </div>
+                            </div>
+
+                            {{with .description}}<div class="card-text">{{. | markdownify | emojify}}</div>{{end}}
                         </div>
-                        <h4 class="card-title exp-title text-muted mt-0 mb-1">{{.title | markdownify | emojify}}</h4>
-                        <h4 class="card-title exp-company text-muted my-0">
-                            {{- with .company_url}}<a href="{{.}}" target="_blank" rel="noopener">{{end}}{{.company | markdownify | emojify}}{{with .company_url}}</a>{{end -}}
-                        </h4>
-                        {{with .description}}<div class="card-text">{{. | markdownify | emojify}}</div>{{end}}
                     </div>
                 </div>
             </div>
+            {{end}}
+            {{end}}
         </div>
-        {{end}}
-        {{end}}
     </div>
 </section>
