@@ -1,9 +1,9 @@
 ---
-title: "{{ replace .Name "-" " " | title }}"
+title: {{ replace .Name "-" " " | title }}
 date: {{ .Date }}
-subtitle: "Page description"
+subtitle: Page description
 
-header_image: "img/header.jpg"
+header_image: img/header.jpg
 header_small: false
-header_filter: "orange"
+header_filter: orange
 ---
