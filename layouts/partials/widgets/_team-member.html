@@ -1,5 +1,5 @@
 <div class="team-player text-center">
-    <img src="{{ .Params.image }}" alt="Photo of {{ .Params.name }}" class="rounded-circle img-fluid img-raised" style=" max-width: 100px ">
+    <img src="{{ .Params.image | default "img/default-avatar.png"}}" alt="Photo of {{ .Params.name }}" class="rounded-circle img-fluid img-raised" style=" max-width: 100px ">
     <h3 class="title">{{ .Params.name }}</h3>
     <p class="category text-primary">{{ .Params.role }}</p>
     <!-- TODO: configure email -->
