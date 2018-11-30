@@ -1,45 +1,53 @@
 <div class="team-player text-center">
-    <img src="{{ .Params.image | default "img/default-avatar.png"}}" alt="Photo of {{ .Params.name }}" class="rounded-circle img-fluid img-raised" style=" max-width: 100px ">
+    {{ $scratch := newScratch }}
+    {{ with (.Resources.ByType "image").GetMatch "*avatar*" }}
+        {{ $scratch.Set "image" (.Resize (printf "550x q90 %s")).RelPermalink }}
+    {{ end }}
+    <img src="{{ $scratch.Get "image" | default "img/default-avatar.png"}}" alt="Photo of {{ .Params.name }}" class="rounded-circle img-fluid img-raised">
     <h3 class="title">{{ .Params.name }}</h3>
-    <p class="category text-primary">{{ .Params.role }}</p>
+    <p class="category text-primary mb-0">{{ .Params.role }}</p>
     <!-- TODO: configure email -->
-    {{/* if .Params.Social.email }}
-    <p class="">{{ .Params.Social.email }}</p>
-    {{ end */}}
-    {{ .Content }}
-
     {{ range .Params.Social }}
-        {{ with .homepage }}
-            <a href="{{ . }}" class="btn btn-primary btn-icon btn-round"><i class="fas fa-home"></i></a>
-        {{ end }}
-        {{ with .twitter }}
-            <a href="{{ . }}" class="btn btn-primary btn-icon btn-round"><i class="fab fa-twitter"></i></a>
-        {{ end }}
-        {{ with .facebook }}
-            <a href="{{ . }}" class="btn btn-primary btn-icon btn-round"><i class="fab fa-facebook"></i></a>
-        {{ end }}
-        {{ with .youtube }}
-            <a href="{{ . }}" class="btn btn-primary btn-icon btn-round"><i class="fab fa-youtube"></i></a>
-        {{ end }}
-        {{ with .tumblr }}
-            <a href="{{ . }}" class="btn btn-primary btn-icon btn-round"><i class="fab fa-tumblr"></i></a>
-        {{ end }}
-        {{ with .steam }}
-            <a href="{{ . }}" class="btn btn-primary btn-icon btn-round"><i class="fab fa-steam"></i></a>
-        {{ end }}
-        {{ with .skype }}
-            <a href="{{ . }}" class="btn btn-primary btn-icon btn-round"><i class="fab fa-skype"></i></a>
-        {{ end }}
-        {{ with .github }}
-            <a href="{{ . }}" class="btn btn-primary btn-icon btn-round"><i class="fab fa-github"></i></a>
-        {{ end }}
-        {{ with .linkedin }}
-            <a href="{{ . }}" class="btn btn-primary btn-icon btn-round"><i class="fab fa-linkedin"></i></a>
-        {{ end }}
-        {{ with .bitbucket }}
-            <a href="{{ . }}" class="btn btn-primary btn-icon btn-round"><i class="fab fa-bitbucket"></i></a>
+        {{ with .email }}
+            <p class="mb-0">{{ . }}</p>
         {{ end }}
     {{ end }}
-
-
+    <div class="mb-3">
+        {{ range .Params.Social }}
+            {{ with .homepage }}
+                <a href="{{ . | safeURL }}" class="btn btn-primary btn-icon btn-round"><i class="fab fas fa-home"></i></a>
+            {{ end }}
+            {{ with .twitter }}
+                <a href="{{ . | safeURL }}" class="btn btn-primary btn-icon btn-round"><i class="fab fa-twitter"></i></a>
+            {{ end }}
+            {{ with .facebook }}
+                <a href="{{ . | safeURL }}" class="btn btn-primary btn-icon btn-round"><i class="fab fa-facebook"></i></a>
+            {{ end }}
+            {{ with .youtube }}
+                <a href="{{ . | safeURL }}" class="btn btn-primary btn-icon btn-round"><i class="fab fa-youtube"></i></a>
+            {{ end }}
+            {{ with .tumblr }}
+                <a href="{{ . | safeURL }}" class="btn btn-primary btn-icon btn-round"><i class="fab fa-tumblr"></i></a>
+            {{ end }}
+            {{ with .steam }}
+                <a href="{{ . | safeURL }}" class="btn btn-primary btn-icon btn-round"><i class="fab fa-steam"></i></a>
+            {{ end }}
+            {{ with .skype }}
+                <a href="{{ . | safeURL }}" class="btn btn-primary btn-icon btn-round"><i class="fab fa-skype"></i></a>
+            {{ end }}
+            {{ with .github }}
+                <a href="{{ . | safeURL }}" class="btn btn-primary btn-icon btn-round"><i class="fab fa-github"></i></a>
+            {{ end }}
+            {{ with .linkedin }}
+                <a href="{{ . | safeURL }}" class="btn btn-primary btn-icon btn-round"><i class="fab fa-linkedin"></i></a>
+            {{ end }}
+            {{ with .bitbucket }}
+                <a href="{{ . | safeURL }}" class="btn btn-primary btn-icon btn-round"><i class="fab fa-bitbucket"></i></a>
+            {{ end }}
+            {{ with .research_gate }}
+                <a href="{{ . | safeURL }}" class="btn btn-primary btn-icon btn-round"><i class="fab fa-researchgate"></i></a>
+            {{ end }}
+        {{ end }}
+    </div>
+    {{/* .Content */}}
 </div>
