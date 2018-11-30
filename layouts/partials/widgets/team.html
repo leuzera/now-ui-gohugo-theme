@@ -8,26 +8,14 @@
             {{ with $page.Title }}
             <h2 class="title">{{ . }}</h2>
             {{ end }}
-            {{ with $page.Params.description }}
-            <p class="description">{{ . }}</p>
+            {{ with $page.Params.subtitle }}
+            <p>{{ . }}</p>
             {{ end }}
         </div>
         <div class="team">
             <div class="row">
-                <!--TODO: Change size of column
-                    Get numbers of members and calculate the number of rows and size of column
-                    Max number of members per row: 4
-                    Possible sizes of columns: (3, 4, 6)
-                -->
-                {{ $num_members := (len ((where $.Site.RegularPages "Type" "team"))) }}
-                {{ $page.Scratch.Set "col_size" "col-md-6"}}
-
-                {{ if ge $num_members 3}}
-                {{ $page.Scratch.Set "col_size" "col-md-4"}}
-                {{ end }}
-
                 {{ range (where $.Site.RegularPages "Type" "team") }}
-                <div class="{{ $page.Scratch.Get "col_size" }}">
+                <div class="col-md-3">
                     {{ partial "widgets/_team-member.html" . }}
                 </div>
                 {{ end }}
