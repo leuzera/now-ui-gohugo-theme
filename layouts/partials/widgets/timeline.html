@@ -12,10 +12,10 @@
             {{ end }}
         </div>
 
-        <div class="col-md-8 offset-md-2">
+        <div class="col-md-9 offset-md-2">
             {{ if $page.Params.events }}
             {{ $exp_len := len $page.Params.events }}
-            {{ range $idx, $key := sort $page.Params.events "date" "desc"}}
+            {{ range $idx, $key := sort $page.Params.events "date" "asc"}}
             <div class="row">
                 <!-- Timeline -->
                 <div class="col-auto text-center flex-column d-none d-sm-flex">
