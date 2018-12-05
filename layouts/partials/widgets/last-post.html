@@ -2,7 +2,6 @@
 {{ $page := .page }}
 
 {{ $posts_len := len (where $.Data.Pages "Section" "post") }}
-{{ if gt $posts_len 0 }}
 <section id="{{ $page.File.TranslationBaseName }}" class="section">
     <div class="container">
         <div class="text-center">
@@ -13,6 +12,7 @@
             <p class="description">{{ . }}</p>
             {{ end }}
         </div>
+        {{ if gt $posts_len 0 }}
         {{ if eq $page.Params.type "list" }}
         <div class="list-group">
             {{ range first 3 (where $.Data.Pages.ByPublishDate.Reverse "Section" "post") }}
@@ -28,6 +28,11 @@
         {{ else }}
         {{ errorf "Configuration error: type must be `card` or `list` but is %v" $page.Params.type }}
         {{ end }}
+        <!-- TODO: Adicionar botão `Mais noticias` -->
+        {{ else }}
+        <div class="text-center">
+            <p>{{ i18n "noNews" }}</p>
+        </div>
+        {{ end }}
     </div>
 </section>
-{{ end }}
