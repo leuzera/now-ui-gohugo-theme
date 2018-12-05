@@ -12,43 +12,48 @@
             <p class="mb-0">{{ . }}</p>
         {{ end }}
     {{ end }}
-    <div class="mb-3">
+    <style>
+        .team-icons a{
+            font-size: 2em;
+        }
+    </style>
+    <div class="mb-3 team-icons">
         {{ range .Params.Social }}
             {{ with .homepage }}
-                <a href="{{ . | safeURL }}" class="btn btn-primary btn-icon btn-round"><i class="fab fas fa-home"></i></a>
+                <a href="{{ . | safeURL }}" ><i class="fab fas fa-home"></i></a>
             {{ end }}
             {{ with .twitter }}
-                <a href="{{ . | safeURL }}" class="btn btn-primary btn-icon btn-round"><i class="fab fa-twitter"></i></a>
+                <a href="{{ . | safeURL }}" ><i class="fab fa-twitter"></i></a>
             {{ end }}
             {{ with .facebook }}
-                <a href="{{ . | safeURL }}" class="btn btn-primary btn-icon btn-round"><i class="fab fa-facebook"></i></a>
+                <a href="{{ . | safeURL }}" ><i class="fab fa-facebook"></i></a>
             {{ end }}
             {{ with .youtube }}
-                <a href="{{ . | safeURL }}" class="btn btn-primary btn-icon btn-round"><i class="fab fa-youtube"></i></a>
+                <a href="{{ . | safeURL }}" ><i class="fab fa-youtube"></i></a>
             {{ end }}
             {{ with .tumblr }}
-                <a href="{{ . | safeURL }}" class="btn btn-primary btn-icon btn-round"><i class="fab fa-tumblr"></i></a>
+                <a href="{{ . | safeURL }}" ><i class="fab fa-tumblr"></i></a>
             {{ end }}
             {{ with .steam }}
-                <a href="{{ . | safeURL }}" class="btn btn-primary btn-icon btn-round"><i class="fab fa-steam"></i></a>
+                <a href="{{ . | safeURL }}" ><i class="fab fa-steam"></i></a>
             {{ end }}
             {{ with .skype }}
-                <a href="{{ . | safeURL }}" class="btn btn-primary btn-icon btn-round"><i class="fab fa-skype"></i></a>
+                <a href="{{ . | safeURL }}" ><i class="fab fa-skype"></i></a>
             {{ end }}
             {{ with .github }}
-                <a href="{{ . | safeURL }}" class="btn btn-primary btn-icon btn-round"><i class="fab fa-github"></i></a>
+                <a href="{{ . | safeURL }}" ><i class="fab fa-github"></i></a>
             {{ end }}
             {{ with .linkedin }}
-                <a href="{{ . | safeURL }}" class="btn btn-primary btn-icon btn-round"><i class="fab fa-linkedin"></i></a>
+                <a href="{{ . | safeURL }}" ><i class="fab fa-linkedin"></i></a>
             {{ end }}
             {{ with .bitbucket }}
-                <a href="{{ . | safeURL }}" class="btn btn-primary btn-icon btn-round"><i class="fab fa-bitbucket"></i></a>
+                <a href="{{ . | safeURL }}" ><i class="fab fa-bitbucket"></i></a>
             {{ end }}
             {{ with .research_gate }}
-                <a href="{{ . | safeURL }}" class="btn btn-primary btn-icon btn-round"><i class="fab fa-researchgate"></i></a>
+                <a href="{{ . | safeURL }}" ><i class="ai fab ai-researchgate"></i></a>
             {{ end }}
             {{ with .lattes }}
-                <a href="{{ . | safeURL }}" class="btn btn-primary btn-icon btn-round"><img src="img/icons/lattes.svg" alt="Lattes" style="position: absolute; transform: translate(-12px,-12px); height: 25px;width: 23px;top: 50%;left: 50%;"></a>
+                <a href="{{ . | safeURL }}" ><i class="ai fab ai-lattes"></i></a>
             {{ end }}
         {{ end }}
     </div>
