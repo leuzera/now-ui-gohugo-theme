@@ -12,6 +12,12 @@ one = "Uma palavra"
 other = "{{ .Count }} palavras"
 
 # Last Posts
+[readMore]
+other = "Leia mais"
+
+[moreNews]
+other = "Mais noticias"
+
 [noNews]
 other = "Parece que ainda não temos noticias para mostar aqui."
 
