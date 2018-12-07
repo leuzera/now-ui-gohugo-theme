@@ -6,6 +6,8 @@
             {{ partial "post-info.html" . }}
         </div>
         <p class="mb-1">{{ .Summary }}</p>
+        {{ if .Truncated }}
         <a href="{{ .Permalink }}" >{{ i18n "readMore" }}</a>
+        {{ end }}
     </div>
 </div>

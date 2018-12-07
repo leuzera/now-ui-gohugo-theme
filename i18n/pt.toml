@@ -13,7 +13,7 @@ other = "{{ .Count }} palavras"
 
 # Last Posts
 [readMore]
-other = "Leia mais"
+other = "Leia mais..."
 
 [moreNews]
 other = "Mais noticias"
