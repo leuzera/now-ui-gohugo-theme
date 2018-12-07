@@ -28,7 +28,9 @@
         {{ else }}
         {{ errorf "Configuration error: type must be `card` or `list` but is %v" $page.Params.type }}
         {{ end }}
-        <!-- TODO: Adicionar botão `Mais noticias` -->
+        <div class="text-right">
+            <a class="btn btn-primary" href="{{ ($.Site.GetPage "Section" "post" ).Permalink }}" role="button">{{ i18n "moreNews" }} <i class="fas fa-arrow-right"></i></a>
+        </div>
         {{ else }}
         <div class="text-center">
             <p>{{ i18n "noNews" }}</p>
