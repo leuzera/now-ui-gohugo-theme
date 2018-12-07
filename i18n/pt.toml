@@ -11,6 +11,10 @@ other = "{{ .Count }} minutos"
 one = "Uma palavra"
 other = "{{ .Count }} palavras"
 
+# Last Posts
+[noNews]
+other = "Parece que ainda não temos noticias para mostar aqui."
+
 # Contact Us form
 [nameInput]
 other = "Nome completo"
@@ -22,7 +26,7 @@ other = "Insira seu nome completo."
 other = "Email"
 
 [emailHelp]
-other = "Nunca iremos compartilhar seu email com ninguem."
+other = "O seu email nunca será compartilhado"
 
 [messageInput]
 other = "Mensagem"
