@@ -4,8 +4,8 @@ other = "Inicio"
 
 # Posts infos
 [timeToRead]
-one = "Um minuto"
-other = "{{ .Count }} minutos"
+one = "Um minuto para ler"
+other = "{{ .Count }} minutos para ler"
 
 [words]
 one = "Uma palavra"
