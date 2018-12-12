@@ -11,6 +11,13 @@ other = "{{ .Count }} minutos para ler"
 one = "Uma palavra"
 other = "{{ .Count }} palavras"
 
+# App Download
+[playStore]
+other = "Disponível no Play Store"
+
+[appStore]
+other = "Disponível na App Store"
+
 # Last Posts
 [readMore]
 other = "Leia mais..."
