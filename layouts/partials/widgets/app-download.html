@@ -1,5 +1,17 @@
 {{ $ := .root }}
 {{ $page := .page }}
+{{ $scratch := newScratch }}
+
+{{ if ( eq $.Site.Home.Language.Lang "pt" ) }}
+    {{ $scratch.Set "glink" "https://play.google.com/intl/en_us/badges/images/generic/pt-br_badge_web_generic.png" }}
+    {{ $scratch.Set "alink" "img/badges/apple/App_Store_Badge_pt-br.svg" }}
+{{ else if ( eq $.Site.Home.Language.Lang "es" ) }}
+    {{ $scratch.Set "glink" "https://play.google.com/intl/en_us/badges/images/generic/es_badge_web_generic.png" }}
+    {{ $scratch.Set "alink" "img/badges/apple/App_Store_Badge_es.svg" }}
+{{ else }}
+    {{ $scratch.Set "glink" "https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" }}
+    {{ $scratch.Set "alink" "img/badges/apple/App_Store_Badge_en.svg" }}
+{{ end }}
 
 <section id="{{ $page.File.TranslationBaseName }}" class="section text-center">
     <div class="container">
@@ -11,20 +23,26 @@
             <p>{{ . }}</p>
             {{ end }}
         </div>
-        <div class="row">
+        <div class="row mt-3">
             <div class="col-md-6 text-center">
-                <img src="{{ "img/default-avatar.png" }}" alt="">
+                {{ if $page.Params.image.path }}
+                <img src="{{ $page.Params.image.path }}" alt="{{ $page.Params.image.alt }}">
+                {{ end }}
             </div>
-            <div class="col-md-6">
-                <p>Em breve, nas lojas Google Play e App Store</p>
-                <!-- TODO: use site langiage to change badges -->
-                {{ printf "%#v" $.Site.Home.Language.Lang }}
-                <a href='{{ $page.Params.play_store_link }}'>
-                    <img alt='Disponível no Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/pt_badge_web_generic.png'  height="85px"/>
-                </a>
-                <a href="{{ $page.Params.app_store_link }}">
-                    <img src="{{ "img/badges/apple/App_Store_Badge_PTBR.svg" }}" alt="Disponível na App Store" height="60px">
-                </a>
+            <div class="col-md-6 d-flex flex-column">
+                <div class="justify-content-start flex-fill">
+                    {{ if $page.Content }}
+                    <p>{{ $page.Content }}</p>
+                    {{ end }}
+                </div>
+                <div class="justify-content-end">
+                    <a href='{{ $page.Params.play_store_link }}'>
+                        <img alt='{{ i18n "playStore" }}' src='{{ $scratch.Get "glink" }}'  height='85px'/>
+                    </a>
+                    <a href='{{ $page.Params.app_store_link }}'>
+                        <img alt='{{ i18n "appStore" }}' src='{{ $scratch.Get "alink" }}' height='60px'>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
