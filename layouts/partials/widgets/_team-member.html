@@ -3,7 +3,7 @@
     {{ with (.Resources.ByType "image").GetMatch "*avatar*" }}
     {{ $scratch.Set "image" (.Resize (printf "550x q90 %s")).RelPermalink }}
     {{ end }}
-    <img src="{{ $scratch.Get "image" | default "img/default-avatar.png"}}" alt="Photo of {{ .Params.name }}" class="rounded-circle img-fluid img-raised">
+    <img src="{{ $scratch.Get "image" | default "img/default-avatar.png" }}" alt="Photo of {{ .Params.name }}" class="rounded-circle img-fluid img-raised">
     <h3 class="title" style="font-size: 1.4em">{{ .Params.name }}</h3>
     <p class="category text-primary mb-0">{{ .Params.role }}</p>
     {{ range .Params.Social }}
