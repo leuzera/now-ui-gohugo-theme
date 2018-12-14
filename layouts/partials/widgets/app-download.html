@@ -24,7 +24,7 @@
             {{ end }}
         </div>
         <div class="row mt-3">
-            <div class="col-md-6 text-center">
+            <div class="col-md-6 text-right">
                 {{ if $page.Params.image.path }}
                 <img src="{{ $page.Params.image.path }}" alt="{{ $page.Params.image.alt }}">
                 {{ end }}
@@ -36,11 +36,11 @@
                     {{ if $page.Content }}
                     <p>{{ $page.Content }}</p>
                     {{ end }}
-                    <a href='{{ $page.Params.play_store_link }}'>
-                        <img alt='{{ i18n "playStore" }}' src='{{ $scratch.Get "glink" }}'  height='85px'/>
+                    <a href='{{ $page.Params.play_store_link }}' style="text-decoration: none;">
+                        <img alt='{{ i18n "playStore" }}' src='{{ $scratch.Get "glink" }}' height='85px' style="filter: grayscale(100%) opacity(0.5); cursor: not-allowed;"/>
                     </a>
-                    <a href='{{ $page.Params.app_store_link }}'>
-                        <img alt='{{ i18n "appStore" }}' src='{{ $scratch.Get "alink" }}' height='60px'>
+                    <a href='{{ $page.Params.app_store_link }}' style="text-decoration: none;">
+                        <img alt='{{ i18n "appStore" }}' src='{{ $scratch.Get "alink" }}' height='60px' style="filter: grayscale(100%) opacity(0.5); cursor: not-allowed;">
                     </a>
                 </div>
             </div>
