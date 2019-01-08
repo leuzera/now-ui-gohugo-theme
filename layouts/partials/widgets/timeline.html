@@ -37,7 +37,7 @@
                         <div class="card-body">
                             {{ with .image }}
                             <div class="float-left mr-3 mb-3">
-                                <img src="{{ .path }}" alt="{{ .alt }}" class="img-fluid" style="max-height: 200px; ">
+                                <img src="{{ .path | relURL }}" alt="{{ .alt }}" class="img-fluid" style="max-height: 200px; ">
                             </div>
                             {{ end }}
                             <div>
