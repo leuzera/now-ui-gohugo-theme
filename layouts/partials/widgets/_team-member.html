@@ -3,13 +3,14 @@
     {{ with (.Resources.ByType "image").GetMatch "*avatar*" }}
     {{ $scratch.Set "image" (.Resize (printf "550x q90 %s")).RelPermalink }}
     {{ end }}
-    <img src="{{ $scratch.Get "image" | default "img/default-avatar.png" }}" alt="Photo of {{ .Params.name }}" class="rounded-circle img-fluid img-raised">
+    <img src="{{ $scratch.Get "image" | default "img/default-avatar.png" }}" alt="Photo of {{ .Params.name }}"
+        class="rounded-circle img-fluid img-raised">
     <h3 class="title" style="font-size: 1.4em">{{ .Params.name }}</h3>
     <p class="category text-primary mb-0">{{ .Params.role }}</p>
     {{ range .Params.Social }}
-    {{ with .email }}
+    {{/* with .email }}
     <p class="mb-0">{{ . }}</p>
-    {{ end }}
+    {{ end */}}
     {{ end }}
     <style>
         .team-icons a {
@@ -19,41 +20,53 @@
     <div class="mb-3 team-icons">
         {{ range .Params.Social }}
         {{ with .homepage }}
-        <a href="{{ . | safeURL }}" class="mr-1"><i class="fab fas fa-home"></i><span class="sr-only sr-only-focusable">Homepage</span></a>
+        <a href="{{ . | safeURL }}" class="mr-1"><i class="fab fas fa-home"></i><span
+                class="sr-only sr-only-focusable">Homepage</span></a>
         {{ end }}
         {{ with .twitter }}
-        <a href="{{ . | safeURL }}" class="mr-1"><i class="fab fa-twitter"></i><span class="sr-only sr-only-focusable">Twitter</span></a>
+        <a href="{{ . | safeURL }}" class="mr-1"><i class="fab fa-twitter"></i><span
+                class="sr-only sr-only-focusable">Twitter</span></a>
         {{ end }}
         {{ with .facebook }}
-        <a href="{{ . | safeURL }}" class="mr-1"><i class="fab fa-facebook"></i><span class="sr-only sr-only-focusable">Facebook</span></a>
+        <a href="{{ . | safeURL }}" class="mr-1"><i class="fab fa-facebook"></i><span
+                class="sr-only sr-only-focusable">Facebook</span></a>
         {{ end }}
         {{ with .youtube }}
-        <a href="{{ . | safeURL }}" class="mr-1"><i class="fab fa-youtube"></i><span class="sr-only sr-only-focusable">Youtube</span></a>
+        <a href="{{ . | safeURL }}" class="mr-1"><i class="fab fa-youtube"></i><span
+                class="sr-only sr-only-focusable">Youtube</span></a>
         {{ end }}
         {{ with .tumblr }}
-        <a href="{{ . | safeURL }}" class="mr-1"><i class="fab fa-tumblr"></i><span class="sr-only sr-only-focusable">Tumblr</span></a>
+        <a href="{{ . | safeURL }}" class="mr-1"><i class="fab fa-tumblr"></i><span
+                class="sr-only sr-only-focusable">Tumblr</span></a>
         {{ end }}
         {{ with .steam }}
-        <a href="{{ . | safeURL }}" class="mr-1"><i class="fab fa-steam"></i><span class="sr-only sr-only-focusable">Steam</span></a>
+        <a href="{{ . | safeURL }}" class="mr-1"><i class="fab fa-steam"></i><span
+                class="sr-only sr-only-focusable">Steam</span></a>
         {{ end }}
         {{ with .skype }}
-        <a href="{{ . | safeURL }}" class="mr-1"><i class="fab fa-skype"></i><span class="sr-only sr-only-focusable">Skype</span></a>
+        <a href="{{ . | safeURL }}" class="mr-1"><i class="fab fa-skype"></i><span
+                class="sr-only sr-only-focusable">Skype</span></a>
         {{ end }}
         {{ with .github }}
-        <a href="{{ . | safeURL }}" class="mr-1"><i class="fab fa-github"></i><span class="sr-only sr-only-focusable">Github</span></a>
+        <a href="{{ . | safeURL }}" class="mr-1"><i class="fab fa-github"></i><span
+                class="sr-only sr-only-focusable">Github</span></a>
         {{ end }}
         {{ with .linkedin }}
-        <a href="{{ . | safeURL }}" class="mr-1"><i class="fab fa-linkedin"></i><span class="sr-only sr-only-focusable">LinkedIn</span></a>
+        <a href="{{ . | safeURL }}" class="mr-1"><i class="fab fa-linkedin"></i><span
+                class="sr-only sr-only-focusable">LinkedIn</span></a>
         {{ end }}
         {{ with .bitbucket }}
-        <a href="{{ . | safeURL }}" class="mr-1"><i class="fab fa-bitbucket"></i><span class="sr-only sr-only-focusable">BitBucket</span></a>
+        <a href="{{ . | safeURL }}" class="mr-1"><i class="fab fa-bitbucket"></i><span
+                class="sr-only sr-only-focusable">BitBucket</span></a>
         {{ end }}
         {{ with .research_gate }}
-        <a href="{{ . | safeURL }}" class="mr-1"><i class="ai fab ai-researchgate"><span class="sr-only sr-only-focusable">Research
+        <a href="{{ . | safeURL }}" class="mr-1"><i class="ai fab ai-researchgate"><span
+                    class="sr-only sr-only-focusable">Research
                     Gate</span></i></a>
         {{ end }}
         {{ with .lattes }}
-        <a href="{{ . | safeURL }}"><i class="ai fab ai-lattes"></i><span class="sr-only sr-only-focusable">Lattes</span></a>
+        <a href="{{ . | safeURL }}"><i class="ai fab ai-lattes"></i><span
+                class="sr-only sr-only-focusable">Lattes</span></a>
         {{ end }}
         {{ end }}
     </div>
