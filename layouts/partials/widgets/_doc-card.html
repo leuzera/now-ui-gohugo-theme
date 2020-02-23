@@ -1,0 +1,18 @@
+<div class="card" style="text-align: left">
+    <div class="card-body">
+        <h3 class="card-title">{{ .title }}</h3>
+        {{if .text }}
+        <p class="card-text">{{ .text }}</p>
+        {{ end }}
+        {{ range .versions }}
+        {{ $ext := (path.Ext .) }}
+        {{if eq $ext ".pdf"}}
+        <a href="{{ . | relURL }}" class="btn btn-primary"><i class="far fa-file-pdf"></i>
+            Baixar PDF</a>
+        {{ else if eq $ext ".epub" }}
+        <a href="{{ . | relURL }}" class="btn btn-primary"><i class="fas fa-book"></i> Baixar
+            EPUB</a>
+        {{ end }}
+        {{ end }}
+    </div>
+</div>

@@ -1,0 +1,23 @@
+{{ $ := .root }}
+{{ $page := .page }}
+{{ $scratch := newScratch }}
+
+<section id="{{ $page.File.TranslationBaseName }}" class="section section-app text-center">
+    <div class="container">
+        {{ with $page.Title }}
+        <div class="text-center">
+            {{ with $page.Title }}
+            <h2 class="title mb-1">{{ . }}</h2>
+            {{ end }}
+            {{ with $page.Params.subtitle }}
+            <p>{{ . }}</p>
+            {{ end }}
+        </div>
+        {{ end }}
+        <div class="docs">
+            {{ range $page.Params.docs }}
+            {{ partial "widgets/_doc-card.html" . }}
+            {{ end }}
+        </div>
+    </div>
+</section>
