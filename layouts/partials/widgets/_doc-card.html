@@ -4,13 +4,15 @@
         {{if .text }}
         <p class="card-text">{{ .text }}</p>
         {{ end }}
-        {{ range .versions }}
-        {{ $ext := (path.Ext .) }}
-        {{if eq $ext ".pdf"}}
-        <a href="{{ . | relURL }}" class="btn btn-primary"><i class="far fa-file-pdf"></i>
+        {{ range $type, $url := .versions }}
+        {{if eq $type "url"}}
+        <a href="{{ $url | safeURL }}" class="btn btn-primary" target="_blank"><i class="fas fa-external-link-alt"></i>
+            Ir para download</a>
+        {{else if eq $type "pdf"}}
+        <a href="{{ $url | relURL }}" class="btn btn-primary"><i class="far fa-file-pdf"></i>
             Baixar PDF</a>
-        {{ else if eq $ext ".epub" }}
-        <a href="{{ . | relURL }}" class="btn btn-primary"><i class="fas fa-book"></i> Baixar
+        {{ else if eq $type "epub" }}
+        <a href="{{ $url | relURL }}" class="btn btn-primary"><i class="fas fa-book"></i> Baixar
             EPUB</a>
         {{ end }}
         {{ end }}
