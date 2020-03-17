@@ -3,19 +3,19 @@
 {{ $scratch := newScratch }}
 
 {{ if ( eq $.Site.Home.Language.Lang "pt" ) }}
-    {{ $scratch.Set "glink" "https://play.google.com/intl/en_us/badges/images/generic/pt-br_badge_web_generic.png" }}
-    {{ $scratch.Set "alink" "img/badges/apple/App_Store_Badge_pt-br.svg" }}
+{{ $scratch.Set "glink" "https://play.google.com/intl/en_us/badges/images/generic/pt-br_badge_web_generic.png" }}
+{{ $scratch.Set "alink" "img/badges/apple/App_Store_Badge_pt-br.svg" }}
 {{ else if ( eq $.Site.Home.Language.Lang "es" ) }}
-    {{ $scratch.Set "glink" "https://play.google.com/intl/en_us/badges/images/generic/es_badge_web_generic.png" }}
-    {{ $scratch.Set "alink" "img/badges/apple/App_Store_Badge_es.svg" }}
+{{ $scratch.Set "glink" "https://play.google.com/intl/en_us/badges/images/generic/es_badge_web_generic.png" }}
+{{ $scratch.Set "alink" "img/badges/apple/App_Store_Badge_es.svg" }}
 {{ else }}
-    {{ $scratch.Set "glink" "https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" }}
-    {{ $scratch.Set "alink" "img/badges/apple/App_Store_Badge_en.svg" }}
+{{ $scratch.Set "glink" "https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" }}
+{{ $scratch.Set "alink" "img/badges/apple/App_Store_Badge_en.svg" }}
 {{ end }}
 
 <section id="{{ $page.File.TranslationBaseName }}" class="section section-app text-center">
     <div class="container">
-        <div class="text-center"  style="margin-bottom: 100px;">
+        <div class="text-center" style="margin-bottom: 100px;">
             {{ with $page.Title }}
             <h2 class="title mb-1">{{ . }}</h2>
             {{ end }}
@@ -36,11 +36,12 @@
                     {{ if $page.Content }}
                     <p>{{ $page.Content }}</p>
                     {{ end }}
-                    <a href='{{ $page.Params.play_store_link }}' style="text-decoration: none;">
-                        <img alt='{{ i18n "playStore" }}' src='{{ $scratch.Get "glink" | relURL }}' height='85px' style="filter: grayscale(100%) opacity(0.5); cursor: not-allowed;"/>
+                    <a href='{{ $page.Params.play_store_link }}' style="text-decoration: none;" target="_blank">
+                        <img alt='{{ i18n "playStore" }}' src='{{ $scratch.Get "glink" | relURL }}' height='85px' />
                     </a>
-                    <a href='{{ $page.Params.app_store_link }}' style="text-decoration: none;">
-                        <img alt='{{ i18n "appStore" }}' src='{{ $scratch.Get "alink" | relURL }}' height='60px' style="filter: grayscale(100%) opacity(0.5); cursor: not-allowed;">
+                    <a href='{{ $page.Params.app_store_link }}' style="text-decoration: none;" target="_blank">
+                        <img alt='{{ i18n "appStore" }}' src='{{ $scratch.Get "alink" | relURL }}' height='60px'
+                            style="filter: grayscale(100%) opacity(0.5); cursor: not-allowed;">
                     </a>
                 </div>
             </div>
